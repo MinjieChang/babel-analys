@@ -1,0 +1,29 @@
+{
+  "name": "babel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "script": "babel-node script.js",
+    "start": "babel-node index.js",
+    "parse": "babel-node 1parse.js",
+    "traverse": "babel-node 2traverse.js",
+    "generator": "babel-node 3generator.js",
+    "template": "babel-node 4template.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/generator": "^7.13.9",
+    "@babel/parser": "^7.13.12",
+    "@babel/template": "^7.12.13",
+    "@babel/traverse": "^7.13.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3"
+  },
+  "dependencies": {
+    "babel-types": "^6.26.0"
+  }
+}
