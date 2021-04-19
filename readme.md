@@ -337,7 +337,7 @@ Node {
 
 [了解 babel-parser](https://www.babeljs.cn/docs/babel-parser)
 
-### 2.1 traverse
+### 2.2 traverse
 
 在 `parser` 阶段 `babel` 把代码转换成了 `ast`，下个阶段就是执行对ast的遍历操作了，包括对其中节点的添加、删除、修改等操作，这是babel编译过程中最复杂的过程，**同时也是babel插件介入工作的阶段**，比如像 `babel-plugin-react`、`babel-plugin-import`等都是在这个阶段工作。这里还是通过例子来看。
 
@@ -369,13 +369,13 @@ traverse(ast, visitor)
 console.dir(ast, {depth: null})
 ```
 
-#### 2.1.1 visitor
+#### 2.2.1 visitor
 
 可以看到，这里给 `traverse`方法第二个参数传入的是 `visitor`对象，并且其中的两个属性名 `FunctionDeclaration` 和 `Identifier`就是上面提到的ast中的节点的 `type`属性值。
 
 实际上，在对ast的遍历过程中，当遍历到的节点的type类型是 `FunctionDeclaration`，就会调用 `visitor`对象中的 `FunctionDeclaration`方法。称此对象为visitor，这是参考了设计模式中的 `visitor`模式
 
-#### 2.1.2 path
+#### 2.2.2 path
 
 注意到，visitor方法中传入了一个 `path`参数，那这个path参数又是代表什么？
 
@@ -441,7 +441,7 @@ path表示两个节点之间连接的对象，例如有下面一个节点及其�
 
 某种意义上，路径是一个节点在树中的位置，以及关于该节点各种信息的响应式 **Responsive** 表示。当你调用一个修改树的方法后，路径信息也会被更新，babel帮你管理这一切，从而使得节点操作更简单，尽可能做到无状态。
 
-### 2.2 generator
+### 2.3 generator
 
 经过了 `parsser`和 `traverse`阶段，babel在下个阶段就是把修改后的ast树再转换成 `code`，这个阶段就是生成 `generator`。
 
@@ -491,7 +491,7 @@ const f = new Function('return ' + result.code)
 
 可以发现，得到的新的代码字符串中，把函数的参数名称和变量名称都改成了 `x`，这里开始有点babel插件的样子了。
 
-### 总结
+### 小总结
 
 以上就是babel在进行代码编译过程中做的主要的三个步骤，简单来说就是这个过程：
 
@@ -501,7 +501,7 @@ const f = new Function('return ' + result.code)
 
 generator的过程可以查看[官网](https://www.babeljs.cn/docs/babel-generator)
 
-### 2.3 template
+### 2.4 template
 
 babel提供了一个template的功能，相当于给我们提供了代码模版的功能，对于相似的代码块直接使用模版并注入预置好的变量生成即可，不需要每次都书写相同的代码。在计算机科学中，这种能力被称为准引用(quasiquotes)
 
@@ -695,10 +695,6 @@ function foo(n) {
   }
 };
 ```
-
-## babel-plugin-console 实现解析
-
-## babel-plugin-import 实现解析
 
 ## 总结
 
