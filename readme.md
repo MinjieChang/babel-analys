@@ -650,7 +650,6 @@ ReturnStatement(path, state) {
   `);
   // 获取当前节点
   const body = path.getSibling(0).node
-  // console.log(body, 9999);
 
   const body_ast = buildRequire({
     BODY_STATEMENT: body,
