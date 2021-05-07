@@ -10,7 +10,8 @@
     "parse": "babel-node 1parse.js",
     "traverse": "babel-node 2traverse.js",
     "generator": "babel-node 3generator.js",
-    "template": "babel-node 4template.js"
+    "template": "babel-node 4template.js",
+    "console": "babel-node 5console.js"
   },
   "keywords": [],
   "author": "",
