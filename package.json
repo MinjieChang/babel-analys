@@ -6,12 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "script": "babel-node script.js",
-    "start": "babel-node index.js",
     "parse": "babel-node 1parse.js",
     "traverse": "babel-node 2traverse.js",
     "generator": "babel-node 3generator.js",
     "template": "babel-node 4template.js",
-    "console": "babel-node 5console.js"
+    "myPlugin": "babel-node ./test/myPlugin.js",
+    "console": "NODE_ENV='production' babel-node ./test/console.js"
   },
   "keywords": [],
   "author": "",
