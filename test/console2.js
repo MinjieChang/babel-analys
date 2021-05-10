@@ -1,4 +1,4 @@
-// 使用 babel-cli 配合 .babelrc 编译 
+// 使用 babel-cli 配合 .babelrc 编译
 
 let a = b => {
   /*
