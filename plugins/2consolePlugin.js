@@ -46,8 +46,8 @@ function hasTrailingComments(node) {
   return trailingComments && trailingComments.length;
 }
 
-// 通过key值防止重复
-let dulplicationKey = null;
+// 通过key值标记兄弟节点
+let nextSibilingKey = null;
 function removeConsoleExpression(path, state) {
   const parentPath = path.parentPath;
   const node = parentPath.node;
@@ -57,13 +57,13 @@ function removeConsoleExpression(path, state) {
 
   if (hasLeadingComments(node)) {
     // 遍历到下个兄弟节点 筛除属于上个节点的comment
-    // if (parentPath.key === dulplicationKey) {
+    // if (parentPath.key === nextSibilingKey) {
     //   node.leadingComments = node.leadingComments.filter(comment => !comment.belongPrevTrail)
     // }
     // 遍历所有的前缀注释
     node.leadingComments.forEach((comment) => {
-      // 检测该key值与防重复key值相同
-      // if (parentPath.key === dulplicationKey) {
+      // 检测该key值为兄弟节点
+      // if (parentPath.key === nextSibilingKey) {
       //   return;
       // }
       // 有保留字 并且不是上个兄弟节点的尾注释
@@ -80,8 +80,8 @@ function removeConsoleExpression(path, state) {
           start: { line: commentLine },
         },
       } = comment;
-      // 防止下一个sibling节点重复遍历注释
-      dulplicationKey = parentPath.key + 1;
+      // 保留下一个sibling节点key
+      nextSibilingKey = parentPath.key + 1;
 
       // 对于尾部注释 需要标记出 该注释是属于当前的尾部 还是属于下个节点的头部 通过其所属的行来判断
       const {
