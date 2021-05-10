@@ -11,7 +11,9 @@
     "generator": "babel-node 3generator.js",
     "template": "babel-node 4template.js",
     "myPlugin": "babel-node ./test/myPlugin.js",
-    "console": "NODE_ENV='production' babel-node ./test/console.js"
+    "console": "NODE_ENV='production' babel-node ./test/console.js",
+    "babel": "NODE_ENV='production' babel ./test/console2.js",
+    "babel2": "NODE_ENV='production' babel ./test/console2.js -o ./test/result2.js"
   },
   "keywords": [],
   "author": "",
