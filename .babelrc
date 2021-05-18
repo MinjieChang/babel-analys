@@ -1,3 +1,6 @@
 {
-  "plugins": ["./plugins/2consolePlugin"]
+  "plugins": [
+    ["./plugins/2babel-plugin-console/index.js", { "removeMethods": null, "env": "process.env.NODE_ENV" }],
+    ["./plugins/3babel-plugin-lodash/index"]
+  ]
 }

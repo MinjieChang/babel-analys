@@ -2,7 +2,7 @@
 // babel-plugin-console 实现解析
 
 const babel = require("babel-core");
-const consolePlugin = require("../plugins/2consolePlugin")
+const consolePlugin = require("../plugins/2babel-plugin-console/index")
 
 const code =`
 let a = b => {

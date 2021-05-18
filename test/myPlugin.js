@@ -1,5 +1,5 @@
 const babel = require("babel-core");
-const myPlugin = require("../plugins/1myPlugin.js")
+const myPlugin = require("../plugins/1myPlugin/index")
 
 const code = `function code(x){
   return x * x

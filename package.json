@@ -13,7 +13,8 @@
     "myPlugin": "babel-node ./test/myPlugin.js",
     "console": "NODE_ENV='production' babel-node ./test/console.js",
     "babel": "NODE_ENV='production' babel ./test/console2.js",
-    "babel2": "NODE_ENV='production' babel ./test/console2.js -o ./test/result2.js"
+    "babel2": "NODE_ENV='production' babel ./test/console2.js -o ./test/result2.js",
+    "lodash": "babel-node ./test/lodashPlugin.js"
   },
   "keywords": [],
   "author": "",
