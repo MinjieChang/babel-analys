@@ -501,6 +501,10 @@ const f = new Function('return ' + result.code)
 
 generator的过程可以查看[官网](https://www.babeljs.cn/docs/babel-generator)
 
+这张图可以概括下babel的工作流程
+
+![ast](./images/ast.png)
+
 ### 2.4 template
 
 babel提供了一个template的功能，相当于给我们提供了代码模版的功能，对于相似的代码块直接使用模版并注入预置好的变量生成即可，不需要每次都书写相同的代码。在计算机科学中，这种能力被称为准引用(quasiquotes)
